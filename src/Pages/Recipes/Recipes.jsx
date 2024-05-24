@@ -1,5 +1,11 @@
+import RecipesCard from "../../components/RecipesComponents/RecipesCard/RecipesCard";
+
 function Recipes() {
-  return <div>this is Recipes</div>;
+  return (
+    <div>
+      <RecipesCard></RecipesCard>
+    </div>
+  );
 }
 
 export default Recipes;
