@@ -1,4 +1,5 @@
 import React from "react";
+import ProductRevew from "./ProductCounter/ProductCounter";
 
 const SuccessStories = () => {
   const stories = [
@@ -6,19 +7,21 @@ const SuccessStories = () => {
       name: "Emily R.",
       story:
         "I started sharing my family recipes on Gourmet Recipes and quickly gained a loyal following. The platform is easy to use and has helped me turn my passion for cooking into a source of income.",
-      image: "/images/emily.jpg",
+      image: "https://i.ibb.co/7QdVXZR/istockphoto-1298088270-1024x1024.jpg",
     },
     {
-      name: "Michael T.",
+      name: "Angle T.",
       story:
         "Selling my recipes on Gourmet Recipes has been a game-changer. The community is supportive, and the additional income has been incredibly helpful.",
-      image: "/images/michael.jpg",
+      image:
+        "https://i.ibb.co/ckqx2kV/1000-F-739666400-De2-TI1-Hxn-Rbq-Ocq-VAxn-On0a-Qx4-M5ne-PD.jpg",
     },
     {
-      name: "Sarah L.",
+      name: "Sarahi L.",
       story:
         "As a professional chef, Gourmet Recipes has allowed me to reach a wider audience and share my culinary creations. The feedback and engagement from users have been amazing!",
-      image: "/images/sarah.jpg",
+      image:
+        "https://i.ibb.co/W0H22hd/1000-F-801286391-Y7-WR1hen-Dgjen-Ya-Jy-Wb-Fh-Ynj6gm-Tbfi-A.jpg",
     },
   ];
 
@@ -54,6 +57,7 @@ const SuccessStories = () => {
           ))}
         </div>
       </div>
+      <ProductRevew />
     </section>
   );
 };
