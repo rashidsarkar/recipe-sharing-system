@@ -1,15 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
+  const user = false;
   const links = (
     <>
       {/* <Link to="/">Home</Link>
       <Link to="/recipes">Recipes</Link> */}
       <li>
-        <Link to="/">Home</Link>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending text-[#021327] "
+              : isActive
+              ? "text-[#05445E] font-semibold"
+              : ""
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link to="/recipes">Recipes</Link>
+        <NavLink
+          to="/recipes"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending text-[#021327] "
+              : isActive
+              ? "text-[#05445E] font-semibold"
+              : ""
+          }
+        >
+          Recipes
+        </NavLink>
       </li>
     </>
   );
@@ -50,11 +73,62 @@ function Navbar() {
           </a>
         </div>
         <div className="hidden navbar-center lg:flex">
-          <ul className="px-1 menu menu-horizontal">{links}</ul>
+          <ul className="inline-flex flex-row flex-wrap p-2 px-1 space-x-4 text-xl font-semibold menuu menuu-horizontal">
+            {links}
+          </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Sign in</a>
-          {/* <a className="btn">Sign out</a> */}
+        <div className="justify-end navbar-end">
+          {user ? (
+            // User is authenticated, show user menu
+            <div className="dropdown dropdown-end">
+              <div
+                className="cursor-pointer tooltip tooltip-left"
+                data-tip={user.displayName}
+              >
+                <div tabIndex={0} className="avatar">
+                  <div className="w-12 rounded-full">
+                    <img src={user.photoURL || "photoURL"} />
+                  </div>
+                </div>
+              </div>
+
+              <ul
+                tabIndex={0}
+                className="mt-3 w-[250px] z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box "
+              >
+                <li>
+                  <div className="flex flex-col px-4 py-3 ">
+                    <span className="block text-sm text-[#503CA1] dark:text-white">
+                      {user.displayName || "Display Name"}
+                    </span>
+                    <span className="block text-sm text-[#503CA1] truncate dark:text-gray-400">
+                      {user.email || "Email"}
+                    </span>
+                  </div>
+                </li>
+
+                <li className="mx-auto text-center text-[#503CA1]">
+                  <Link>Dashboard</Link>
+                  {/*  */}
+                </li>
+                <li className="mx-auto text-center text-[#503CA1]">
+                  <Link>Logout</Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            // User is not authenticated, show login button
+            <ul className="inline-flex flex-row flex-wrap gap-3 p-2 px-1 text-xl text-white menuu menuu-horizontal">
+              <li>
+                <NavLink
+                  to="/Login"
+                  className="inline-block rounded bg-[#DDF2FD] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-[#427D9D] shadow-md transition duration-150 ease-in-out hover:bg-[#9BBEC8] hover:shadow-lg focus:bg-[#9BBEC8]focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#9BBEC8] active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-md"
+                >
+                  Login
+                </NavLink>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import Navbar from "../components/Footer/Navbar/Navbar";
 
 function MainLayout() {
   return (
-    <div className="mx-auto max-w-7xl">
+    <div data-theme="wireframe" className="mx-auto max-w-7xl">
       <Navbar />
       <Outlet />
       <Footer />
