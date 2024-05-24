@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "./Banar.css";
 import TextScramble from "../../../TextEffectComponents/TextScramble/TextScramble";
 import BannerDecpt from "../../../TextEffectComponents/BannerDecpt/BannerDecpt";
+import MyBtn from "../../../TextEffectComponents/MyBtn/MyBtn";
 
 function Banar() {
   return (
@@ -75,6 +76,9 @@ https://i.ibb.co/H2kW4Td/pexels-kampus-8629042.jpg */}
           </BannerDecpt>
           <div className="space-x-3">
             <button className="btn btn-primary">See recipes</button>
+
+            {/* <MyBtn>See recipes</MyBtn>
+            <MyBtn>Add recipes</MyBtn> */}
             <button className="btn btn-primary">Add recipes</button>
           </div>
         </div>

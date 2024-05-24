@@ -1,3 +1,4 @@
+import SectionHeading from "../../TextEffectComponents/SectionHeading/SectionHeading";
 import Banar from "./Banner/Banner";
 
 function Home() {
@@ -5,6 +6,7 @@ function Home() {
     <div>
       <div className="max-w-7xl">
         <Banar></Banar>
+        <SectionHeading>Success Stories</SectionHeading>
       </div>
     </div>
   );
