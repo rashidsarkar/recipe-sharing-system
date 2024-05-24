@@ -11,9 +11,11 @@ function RecipesCard({ recipes }) {
   const navigate = useNavigate();
 
   // console.log(user);
-  const { floorNo, blockName, apartmentNo, rent, image } = recipes || {};
+  //   const { floorNo, blockName, apartmentNo, rent, image } = recipes || {};
 
   // console.log(room);
+  const image =
+    "https://i.ibb.co/W0H22hd/1000-F-801286391-Y7-WR1hen-Dgjen-Ya-Jy-Wb-Fh-Ynj6gm-Tbfi-A.jpg";
 
   useEffect(() => {
     VanillaTilt.init(document.querySelectorAll(".carda"), {
@@ -31,7 +33,7 @@ function RecipesCard({ recipes }) {
     });
   }, []);
   let cardStyle = {
-    backgroundImage: `url(${image})`,
+    backgroundImage: `url(${`https://i.ibb.co/W0H22hd/1000-F-801286391-Y7-WR1hen-Dgjen-Ya-Jy-Wb-Fh-Ynj6gm-Tbfi-A.jpg`})`,
   };
   const currentDate = new Date();
   const formattedDate = `${
@@ -45,15 +47,17 @@ function RecipesCard({ recipes }) {
         <div className="m-2 mx-auto carda lg:m-7 md:m-3 ">
           <div style={cardStyle} className="card-image quiz-image"></div>
           <div className="card-text">
-            <span className="date">Apartment Number : {apartmentNo}</span>
-            <h2>{blockName}</h2>
+            <span className="date">purchased_by</span>
+            <h2>Recipe Name</h2>
 
             <div className="flex justify-around">
-              <p>Rent: ${rent}</p>
-              <p>Floor Number : {floorNo}</p>
+              <p>creatorEmail</p>
+              <p>Country</p>
             </div>
           </div>
-          <button className="w-9/12 mx-auto btn btn-primary">Agreement</button>
+          <button className="w-9/12 mx-auto btn btn-primary">
+            View The Recipe
+          </button>
         </div>
       </div>
     </>
