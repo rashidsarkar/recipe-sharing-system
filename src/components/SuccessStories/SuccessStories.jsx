@@ -1,5 +1,6 @@
 import React from "react";
 import ProductRevew from "./ProductCounter/ProductCounter";
+import BannerDecpt from "../../TextEffectComponents/BannerDecpt/BannerDecpt";
 
 const SuccessStories = () => {
   const stories = [
@@ -31,14 +32,15 @@ const SuccessStories = () => {
         {/* <h2 className="mb-8 text-3xl font-semibold text-center text-gray-800">
           Success Stories
         </h2> */}
-
-        <p className="mb-12 text-lg text-center text-gray-700">
-          Discover why thousands of cooking enthusiasts and professional chefs
-          are choosing Gourmet Recipes to share and sell their culinary
-          creations. Our platform offers a supportive community, user-friendly
-          interface, and the opportunity to turn your passion for cooking into a
-          profitable venture.
-        </p>
+        <BannerDecpt>
+          <p className="mb-12 text-lg text-center text-gray-700">
+            Discover why thousands of cooking enthusiasts and professional chefs
+            are choosing Gourmet Recipes to share and sell their culinary
+            creations. Our platform offers a supportive community, user-friendly
+            interface, and the opportunity to turn your passion for cooking into
+            a profitable venture.
+          </p>
+        </BannerDecpt>
         <div className="flex flex-wrap -mx-4">
           {stories.map((story, index) => (
             <div key={index} className="w-full px-4 mb-8 md:w-1/3 ">
@@ -48,10 +50,14 @@ const SuccessStories = () => {
                   alt={story.name}
                   className="w-24 h-24 mx-auto mb-4 rounded-full"
                 />
-                <h3 className="text-xl font-semibold text-center text-gray-700">
-                  {story.name}
-                </h3>
-                <p className="mt-4 text-center text-gray-600">{story.story}</p>
+                <BannerDecpt>
+                  <h3 className="text-xl font-semibold text-center text-gray-700">
+                    {story.name}
+                  </h3>
+                  <p className="mt-4 text-center text-gray-600">
+                    {story.story}
+                  </p>
+                </BannerDecpt>
               </div>
             </div>
           ))}

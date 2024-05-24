@@ -1,7 +1,42 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Firebase/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 function Navbar() {
-  const user = false;
+  const { googleSing, user, logOut } = useContext(AuthContext);
+  const navigat = useNavigate();
+  const preveLocation = useLocation();
+
+  const handleGoogleSignIn = () => {
+    googleSing()
+      .then((user) => {
+        Swal("Success", "Login successful!", "success");
+        navigat(preveLocation?.state || "/");
+        console.log(user.user, 1);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  const handleSingOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
+  console.log({
+    name: user?.displayName,
+    photo: user?.photoURL,
+    email: user?.email,
+  });
+  // console.log(user);
+
+  // const user = false;
   const links = (
     <>
       {/* <Link to="/">Home</Link>
@@ -107,12 +142,12 @@ function Navbar() {
                   </div>
                 </li>
 
-                <li className="mx-auto text-center text-[#503CA1]">
+                {/* <li className="mx-auto text-center text-[#503CA1]">
                   <Link>Dashboard</Link>
-                  {/*  */}
-                </li>
+                
+                </li> */}
                 <li className="mx-auto text-center text-[#503CA1]">
-                  <Link>Logout</Link>
+                  <Link onClick={handleSingOut}>Logout</Link>
                 </li>
               </ul>
             </div>
@@ -121,7 +156,7 @@ function Navbar() {
             <ul className="inline-flex flex-row flex-wrap gap-3 p-2 px-1 text-xl text-white menuu menuu-horizontal">
               <li>
                 <NavLink
-                  to="/Login"
+                  onClick={handleGoogleSignIn}
                   className="inline-block rounded bg-[#DDF2FD] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-[#427D9D] shadow-md transition duration-150 ease-in-out hover:bg-[#9BBEC8] hover:shadow-lg focus:bg-[#9BBEC8]focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#9BBEC8] active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-md"
                 >
                   Login

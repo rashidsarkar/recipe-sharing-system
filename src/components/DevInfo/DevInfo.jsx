@@ -1,9 +1,10 @@
 import React from "react";
+import SectionHeading from "../../TextEffectComponents/SectionHeading/SectionHeading";
 
 function DevInfo() {
   return (
-    <div className="p-6 bg-gray-100 md:p-12 lg:p-16">
-      <div className="max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-md">
+    <div className="p-6 md:p-12 lg:p-16">
+      <div className="max-w-4xl mx-auto overflow-hidden rounded-lg shadow-md bg-base-200">
         <div className="p-6">
           <h2 className="text-2xl font-bold text-gray-800 md:text-3xl lg:text-4xl">
             Md Rashid Sarkar
