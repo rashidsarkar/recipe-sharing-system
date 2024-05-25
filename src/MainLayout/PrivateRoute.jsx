@@ -1,16 +1,13 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Firebase/AuthProvider/AuthProvider";
+import CustomLoading from "../components/CustomLoading/CustomLoading";
 
 function PrivateRoute({ children }) {
   const location = useLocation();
   const { user, loading } = useContext(AuthContext);
   if (loading) {
-    return (
-      <div className="w-24 mx-auto loadd">
-        <span className="flex items-center justify-center min-h-screen bg-pink-500 loading loading-bars loading-lg"></span>
-      </div>
-    );
+    return <CustomLoading></CustomLoading>;
   }
   if (user) return children;
   return <Navigate state={location.pathname} to={"/"} replace></Navigate>;
