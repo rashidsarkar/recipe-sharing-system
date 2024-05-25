@@ -1,0 +1,110 @@
+[
+    {
+        "recipe_id": 1,
+        "recipe_name": "Chocolate Cake",
+        "image": "https://i.ibb.co/tCwPyZw/Chocolate-Cake.jpg",
+        "details": "A rich and moist chocolate cake with a creamy chocolate frosting.",
+        "video_code": "ChocCake123",
+        "country": "USA",
+        "category": "Dessert"
+    },
+    {
+        "recipe_id": 2,
+        "recipe_name": "Spaghetti Carbonara",
+        "image": "https://i.ibb.co/KbVPDGL/Spaghetti-Carbonara.jpg",
+        "details": "Classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+        "video_code": "SpagCarb234",
+        "country": "Italy",
+        "category": "Main Course"
+    },
+    {
+        "recipe_id": 3,
+        "recipe_name": "Caesar Salad",
+        "image": "https://i.ibb.co/VMnNPtp/Caesar-Salad.jpg",
+        "details": "Fresh romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.",
+        "video_code": "CaesSal345",
+        "country": "Mexico",
+        "category": "Appetizer"
+    },
+    {
+        "recipe_id": 4,
+        "recipe_name": "Tiramisu",
+        "image": "https://i.ibb.co/dQR6H6d/Tiramisu.jpg",
+        "details": "An Italian dessert made of layers of coffee-soaked ladyfingers and mascarpone cheese.",
+        "video_code": "Tira456",
+        "country": "Italy",
+        "category": "Dessert"
+    },
+    {
+        "recipe_id": 5,
+        "recipe_name": "Beef Stroganoff",
+        "image": "https://i.ibb.co/k1P1m0q/Beef-Stroganoff.jpg",
+        "details": "A Russian dish of sautéed pieces of beef served in a sauce with smetana (sour cream).",
+        "video_code": "BeefStrog567",
+        "country": "Russia",
+        "category": "Main Course"
+    },
+    {
+        "recipe_id": 6,
+        "recipe_name": "Bruschetta",
+        "image": "https://i.ibb.co/v1YZmDk/Bruschetta.jpg",
+        "details": "Grilled bread rubbed with garlic and topped with olive oil, salt, and tomatoes.",
+        "video_code": "Brusch678",
+        "country": "Italy",
+        "category": "Appetizer"
+    },
+    {
+        "recipe_id": 7,
+        "recipe_name": "Cheesecake",
+        "image": "https://i.ibb.co/BcFthxj/Cheesecake.jpg",
+        "details": "A sweet dessert consisting of one or more layers, with the main layer being a mixture of soft, fresh cheese.",
+        "video_code": "Cheese789",
+        "country": "Greece",
+        "category": "Dessert"
+    },
+    {
+        "recipe_id": 8,
+        "recipe_name": "Chicken Curry",
+        "image": "https://i.ibb.co/ggXQwQQ/Chicken-Curry.jpg",
+        "details": "A flavorful Indian dish made with chicken simmered in a spiced tomato sauce.",
+        "video_code": "ChickCurr890",
+        "country": "India",
+        "category": "Main Course"
+    },
+    {
+        "recipe_id": 9,
+        "recipe_name": "Spring Rolls",
+        "image": "https://i.ibb.co/kMmS2Xk/j-Spring-Rolls.jpg",
+        "details": "A popular appetizer from East Asia, consisting of a thin pastry filled with vegetables or meat.",
+        "video_code": "SprRoll901",
+        "country": "China",
+        "category": "Appetizer"
+    },
+    {
+        "recipe_id": 10,
+        "recipe_name": "Pavlova",
+        "image": "https://i.ibb.co/phJhzrc/Pavlova.jpg",
+        "details": "A meringue-based dessert named after the Russian ballerina Anna Pavlova.",
+        "video_code": "Pavlova012",
+        "country": "Australia",
+        "category": "Dessert"
+    },
+    {
+        "recipe_id": 11,
+        "recipe_name": "Lamb Kebabs",
+        "image": "https://i.ibb.co/w7bjGyp/Lamb-Kebabs.jpg",
+        "details": "Marinated lamb pieces grilled on skewers, a popular Middle Eastern main course.",
+        "video_code": "LambKebab123",
+        "country": "Turkey",
+        "category": "Main Course"
+    },
+    {
+        "recipe_id": 12,
+        "recipe_name": "Stuffed Mushrooms",
+        "image": "https://i.ibb.co/kHpfVwd/Stuffed-Mushrooms.jpg",
+        "details": "Mushroom caps filled with a mixture of cheese, garlic, and breadcrumbs, then baked.",
+        "video_code": "StuffMush234",
+        "country": "France",
+        "category": "Appetizer"
+    }
+]

@@ -34,6 +34,13 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
+    /* new css */
+    /* width: 100%;
+    height: 200px; */
+     /* Adjust as needed */
+    /* background-size: cover; */
+    background-position: center;
+    /* new css */
   }
   .card-text {
     grid-area: text;

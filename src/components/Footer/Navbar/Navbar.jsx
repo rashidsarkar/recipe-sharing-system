@@ -29,11 +29,12 @@ function Navbar() {
         console.log(error);
       });
   };
-  console.log({
-    name: user?.displayName,
-    photo: user?.photoURL,
-    email: user?.email,
-  });
+
+  // console.log({
+  //   name: user?.displayName,
+  //   photo: user?.photoURL,
+  //   email: user?.email,
+  // });
   // console.log(user);
 
   // const user = false;
