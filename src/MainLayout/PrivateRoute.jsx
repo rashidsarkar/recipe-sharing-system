@@ -13,7 +13,7 @@ function PrivateRoute({ children }) {
     );
   }
   if (user) return children;
-  return <Navigate state={location.pathname} to={"/login"} replace></Navigate>;
+  return <Navigate state={location.pathname} to={"/"} replace></Navigate>;
 }
 
 export default PrivateRoute;

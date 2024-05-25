@@ -11,7 +11,15 @@ function RecipesCard({ recipe }) {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   console.log(recipe);
-  const { category, country, details, video_code, image, recipe_name } = recipe;
+  const {
+    category,
+    country,
+    details,
+    video_code,
+    image,
+    recipe_name,
+    creatorEmail,
+  } = recipe;
   console.log(category);
 
   useEffect(() => {
@@ -48,8 +56,9 @@ function RecipesCard({ recipe }) {
             <h2>{recipe_name}</h2>
 
             <div className="flex justify-around">
-              <p>creatorEmail</p>
-              <p>{country}</p>
+              <p>Creator Email {creatorEmail}</p>
+
+              <p>Country {country}</p>
             </div>
           </div>
           <button className="w-9/12 mx-auto btn btn-primary">

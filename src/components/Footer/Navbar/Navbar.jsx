@@ -70,6 +70,23 @@ function Navbar() {
           Recipes
         </NavLink>
       </li>
+
+      {user && (
+        <li>
+          <NavLink
+            to="/addRecipes"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending text-[#021327] "
+                : isActive
+                ? "text-[#05445E] font-semibold"
+                : ""
+            }
+          >
+            Add Recipes
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -138,7 +155,7 @@ function Navbar() {
                       {user.displayName || "Display Name"}
                     </span>
                     <span className="block text-sm text-[#503CA1] truncate dark:text-gray-400">
-                      {user.email || "Email"}
+                      Coins: 50
                     </span>
                   </div>
                 </li>

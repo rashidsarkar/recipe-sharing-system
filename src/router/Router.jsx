@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Recipes from "../Pages/Recipes/Recipes";
+import PrivateRoute from "../MainLayout/PrivateRoute";
+import AddRecipes from "../Pages/AddRecipes/AddRecipes";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <Recipes />,
+      },
+      {
+        path: "/addRecipes",
+        element: (
+          <PrivateRoute>
+            <AddRecipes />
+          </PrivateRoute>
+        ),
       },
     ],
   },
