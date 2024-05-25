@@ -22,6 +22,7 @@ function RecipesCard({ recipe }) {
     image,
     recipe_name,
     creatorEmail,
+    purchased_by,
   } = recipe;
 
   useEffect(() => {
@@ -90,7 +91,7 @@ function RecipesCard({ recipe }) {
       <div className="m-2 mx-auto carda lg:m-7 md:m-3">
         <div style={cardStyle} className="card-image quiz-image"></div>
         <div className="card-text">
-          <span className="date">purchased by</span>
+          <span className="date">Purchased {purchased_by.length} User</span>
           <h2>{recipe_name}</h2>
           <div className="flex justify-around">
             <p>Creator Email: {creatorEmail}</p>
