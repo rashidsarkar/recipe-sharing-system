@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { useNavigate } from "react-router-dom";
@@ -6,11 +5,13 @@ import "./RecipesCardCss.css";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useCoinData from "../../../RecipesApi/useCoinData.js";
+import usePurchaseRecipe from "../../../RecipesApi/usePurchaseRecipe.js";
 
 function RecipesCard({ recipe }) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { coinData, isLoading, isError, error } = useCoinData();
+  const { purchaseRecipe } = usePurchaseRecipe();
   // console.log(coinData);
 
   const {
@@ -72,28 +73,16 @@ function RecipesCard({ recipe }) {
         confirmButtonText: "Yes, purchase!",
         cancelButtonText: "No, cancel",
         reverseButtons: true,
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          // Assuming you have a function to deduct coins
-          deductCoins(10);
-
-          Swal.fire({
-            icon: "success",
-            title: "Purchase Successful",
-            text: "You have successfully purchased the recipe access.",
-            timer: 3000,
-            showConfirmButton: false,
-            toast: true,
-            position: "top-right",
-          });
-
-          // Navigate to the recipe detail page
-          navigate(`/recipeDetails`);
+          let updateData = {
+            userEmail: user.email,
+            recipeId: recipe._id,
+          };
+          await purchaseRecipe(updateData);
         }
       });
     }
-    // console.log("you are not owner");
-    // Navigate to the recipe detail page
   };
 
   return (

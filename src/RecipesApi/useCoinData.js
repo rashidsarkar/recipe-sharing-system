@@ -13,7 +13,7 @@ function useCoinData() {
   } = useQuery({
     queryFn: async () => {
       const res = await axiosInstancePublic.get(`/userCoin/${user.email}`);
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
     queryKey: ["userCoin", user?.email],

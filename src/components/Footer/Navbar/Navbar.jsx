@@ -23,6 +23,7 @@ function Navbar() {
           photo: user.photoURL,
           email: user.email,
           coin: 50,
+          incomeCoin: 0,
         })
         .then(() => {
           setUserDataPosted(true);
@@ -37,7 +38,6 @@ function Navbar() {
     googleSing()
       .then((user) => {
         Swal("Success", "Login successful!", "success");
-        navigate(preveLocation?.state || "/");
       })
       .catch((error) => {
         console.log(error.message);
