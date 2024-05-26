@@ -12,7 +12,7 @@ function RecipesCard({ recipe }) {
   const navigate = useNavigate();
   const { coinData, isLoading, isError, error } = useCoinData();
   const { purchaseRecipe, addError } = usePurchaseRecipe();
-  console.log(addError);
+  // console.log(addError);
 
   const {
     category,
