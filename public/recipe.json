@@ -6,7 +6,14 @@
         "details": "A rich and moist chocolate cake with a creamy chocolate frosting.",
         "video_code": "ChocCake123",
         "country": "USA",
-        "category": "Dessert"
+        "category": "Dessert",
+        "creatorEmail": "creator1@example.com",
+        "watchCount": 234,
+        "purchased_by": [
+            "user1@example.com",
+            "user2@example.com",
+            "user3@example.com"
+        ]
     },
     {
         "recipe_id": 2,
@@ -15,7 +22,14 @@
         "details": "Classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
         "video_code": "SpagCarb234",
         "country": "Italy",
-        "category": "Main Course"
+        "category": "Main Course",
+        "creatorEmail": "creator2@example.com",
+        "watchCount": 98,
+        "purchased_by": [
+            "user4@example.com",
+            "user5@example.com",
+            "user6@example.com"
+        ]
     },
     {
         "recipe_id": 3,
@@ -24,7 +38,14 @@
         "details": "Fresh romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.",
         "video_code": "CaesSal345",
         "country": "Mexico",
-        "category": "Appetizer"
+        "category": "Appetizer",
+        "creatorEmail": "creator3@example.com",
+        "watchCount": 183,
+        "purchased_by": [
+            "user7@example.com",
+            "user8@example.com",
+            "user9@example.com"
+        ]
     },
     {
         "recipe_id": 4,
@@ -33,7 +54,14 @@
         "details": "An Italian dessert made of layers of coffee-soaked ladyfingers and mascarpone cheese.",
         "video_code": "Tira456",
         "country": "Italy",
-        "category": "Dessert"
+        "category": "Dessert",
+        "creatorEmail": "creator4@example.com",
+        "watchCount": 342,
+        "purchased_by": [
+            "user10@example.com",
+            "user11@example.com",
+            "user12@example.com"
+        ]
     },
     {
         "recipe_id": 5,
@@ -42,7 +70,14 @@
         "details": "A Russian dish of sautéed pieces of beef served in a sauce with smetana (sour cream).",
         "video_code": "BeefStrog567",
         "country": "Russia",
-        "category": "Main Course"
+        "category": "Main Course",
+        "creatorEmail": "creator5@example.com",
+        "watchCount": 512,
+        "purchased_by": [
+            "user13@example.com",
+            "user14@example.com",
+            "user15@example.com"
+        ]
     },
     {
         "recipe_id": 6,
@@ -51,7 +86,14 @@
         "details": "Grilled bread rubbed with garlic and topped with olive oil, salt, and tomatoes.",
         "video_code": "Brusch678",
         "country": "Italy",
-        "category": "Appetizer"
+        "category": "Appetizer",
+        "creatorEmail": "creator6@example.com",
+        "watchCount": 275,
+        "purchased_by": [
+            "user16@example.com",
+            "user17@example.com",
+            "user18@example.com"
+        ]
     },
     {
         "recipe_id": 7,
@@ -60,7 +102,14 @@
         "details": "A sweet dessert consisting of one or more layers, with the main layer being a mixture of soft, fresh cheese.",
         "video_code": "Cheese789",
         "country": "Greece",
-        "category": "Dessert"
+        "category": "Dessert",
+        "creatorEmail": "creator7@example.com",
+        "watchCount": 178,
+        "purchased_by": [
+            "user19@example.com",
+            "user20@example.com",
+            "user21@example.com"
+        ]
     },
     {
         "recipe_id": 8,
@@ -69,7 +118,14 @@
         "details": "A flavorful Indian dish made with chicken simmered in a spiced tomato sauce.",
         "video_code": "ChickCurr890",
         "country": "India",
-        "category": "Main Course"
+        "category": "Main Course",
+        "creatorEmail": "creator8@example.com",
+        "watchCount": 421,
+        "purchased_by": [
+            "user22@example.com",
+            "user23@example.com",
+            "user24@example.com"
+        ]
     },
     {
         "recipe_id": 9,
@@ -78,7 +134,14 @@
         "details": "A popular appetizer from East Asia, consisting of a thin pastry filled with vegetables or meat.",
         "video_code": "SprRoll901",
         "country": "China",
-        "category": "Appetizer"
+        "category": "Appetizer",
+        "creatorEmail": "creator9@example.com",
+        "watchCount": 317,
+        "purchased_by": [
+            "user25@example.com",
+            "user26@example.com",
+            "user27@example.com"
+        ]
     },
     {
         "recipe_id": 10,
@@ -87,7 +150,14 @@
         "details": "A meringue-based dessert named after the Russian ballerina Anna Pavlova.",
         "video_code": "Pavlova012",
         "country": "Australia",
-        "category": "Dessert"
+        "category": "Dessert",
+        "creatorEmail": "creator10@example.com",
+        "watchCount": 289,
+        "purchased_by": [
+            "user28@example.com",
+            "user29@example.com",
+            "user30@example.com"
+        ]
     },
     {
         "recipe_id": 11,
@@ -96,7 +166,14 @@
         "details": "Marinated lamb pieces grilled on skewers, a popular Middle Eastern main course.",
         "video_code": "LambKebab123",
         "country": "Turkey",
-        "category": "Main Course"
+        "category": "Main Course",
+        "creatorEmail": "creator11@example.com",
+        "watchCount": 217,
+        "purchased_by": [
+            "user31@example.com",
+            "user32@example.com",
+            "user33@example.com"
+        ]
     },
     {
         "recipe_id": 12,
@@ -105,6 +182,13 @@
         "details": "Mushroom caps filled with a mixture of cheese, garlic, and breadcrumbs, then baked.",
         "video_code": "StuffMush234",
         "country": "France",
-        "category": "Appetizer"
+        "category": "Appetizer",
+        "creatorEmail": "creator12@example.com",
+        "watchCount": 155,
+        "purchased_by": [
+            "user34@example.com",
+            "user35@example.com",
+            "user36@example.com"
+        ]
     }
 ]
