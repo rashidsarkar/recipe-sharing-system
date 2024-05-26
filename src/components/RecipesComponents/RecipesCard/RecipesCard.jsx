@@ -11,8 +11,8 @@ function RecipesCard({ recipe }) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { coinData, isLoading, isError, error } = useCoinData();
-  const { purchaseRecipe } = usePurchaseRecipe();
-  // console.log(coinData);
+  const { purchaseRecipe, addError } = usePurchaseRecipe();
+  console.log(addError);
 
   const {
     category,
@@ -50,7 +50,7 @@ function RecipesCard({ recipe }) {
       });
       return;
     } else if (creatormail === user.email) {
-      navigate(`/recipeDetails`);
+      navigate(`/recipeDetails/${recipe._id}`);
       return;
     } else if (coinData.coin < 10) {
       navigate(`/purchasecoin`);

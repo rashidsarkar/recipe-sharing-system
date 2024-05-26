@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/recipeDetails",
+        path: "/recipeDetails/:idx",
         element: (
           <PrivateRoute>
             <RecipeDetails />

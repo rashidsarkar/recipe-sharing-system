@@ -9,19 +9,34 @@ function usePurchaseRecipe() {
 
   const { mutateAsync: purchaseRecipe, error: addError } = useMutation({
     mutationFn: async (updateData) => {
+      // const { recipeId } = updateData;
+      // console.log(recipeId);
       const res = await axiosInstancePublic.post(
         `/api/purchaseRecipe`,
         updateData
       );
+      console.log(res);
       return res.data;
     },
     onError: (error) => {
       console.error("Error Purchase recipe:", error);
-      Swal.fire({
-        title: "Error",
-        text: "There was an error Purchase your recipe. Please try again.",
-        icon: "error",
-      });
+      if (
+        error.response &&
+        error.response.data.message === "User already purchased this recipe"
+      ) {
+        Swal.fire({
+          title: "Info",
+          text: "You have already purchased this recipe.",
+          icon: "info",
+        });
+        navigate("");
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "There was an error purchasing your recipe. Please try again.",
+          icon: "error",
+        });
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["userCoin"]);
