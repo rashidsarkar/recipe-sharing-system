@@ -93,7 +93,7 @@ function RecipesCard({ recipe }) {
         <div className="card-text">
           <span className="date">Purchased {purchased_by.length} User</span>
           <h2>{recipe_name}</h2>
-          <div className="flex justify-around">
+          <div className="flex flex-col md:flex-row justify-around items-center  text-center">
             <p>Creator Email: {creatorEmail}</p>
             <p>Country: {country}</p>
           </div>
