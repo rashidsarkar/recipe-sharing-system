@@ -6,6 +6,7 @@ import PrivateRoute from "../MainLayout/PrivateRoute";
 import AddRecipes from "../Pages/AddRecipes/AddRecipes";
 import RecipeDetails from "../Pages/RecipeDetails/RecipeDetails";
 import Purchasecoin from "../Pages/Purchasecoin/Purchasecoin";
+import Checkout from "../Pages/Purchasecoin/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <RecipeDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout />
           </PrivateRoute>
         ),
       },
