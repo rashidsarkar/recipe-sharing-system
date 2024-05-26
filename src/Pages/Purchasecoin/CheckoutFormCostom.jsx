@@ -2,9 +2,14 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import axiosInstancePublic from "../../AxiosApi/axiosInstancePublic";
 import useAuth from "../../hooks/useAuth";
+import useBuyCoin from "../../RecipesApi/useBuyCoin";
+import { useNavigate } from "react-router-dom";
 
 function CheckoutFormCostom({ paymentData }) {
+  const navigate = useNavigate();
   const { user } = useAuth();
+  const { buyCoin } = useBuyCoin();
+  console.log(user.email);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionID, setTransctionId] = useState("");
@@ -62,6 +67,8 @@ function CheckoutFormCostom({ paymentData }) {
         setError("");
         console.log("paymentIntent", paymentIntent);
         setTransctionId(paymentIntent.id);
+        await buyCoin({ email: user.email, coinAmount: coins });
+        navigate("/recipes");
       }
     }
   };

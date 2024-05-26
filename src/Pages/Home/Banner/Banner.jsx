@@ -9,6 +9,7 @@ import "./Banar.css";
 import TextScramble from "../../../TextEffectComponents/TextScramble/TextScramble";
 import BannerDecpt from "../../../TextEffectComponents/BannerDecpt/BannerDecpt";
 import MyBtn from "../../../TextEffectComponents/MyBtn/MyBtn";
+import { Link } from "react-router-dom";
 
 function Banar() {
   return (
@@ -75,11 +76,15 @@ https://i.ibb.co/H2kW4Td/pexels-kampus-8629042.jpg */}
             meal is a culinary delight.
           </BannerDecpt>
           <div className="space-x-3">
-            <button className="btn btn-primary">See recipes</button>
+            <Link to={`/recipes`} className="btn btn-primary">
+              See recipes
+            </Link>
 
             {/* <MyBtn>See recipes</MyBtn>
             <MyBtn>Add recipes</MyBtn> */}
-            <button className="btn btn-primary">Add recipes</button>
+            <Link to={`/addRecipes`} className="btn btn-primary">
+              Add recipes
+            </Link>
           </div>
         </div>
       </div>
