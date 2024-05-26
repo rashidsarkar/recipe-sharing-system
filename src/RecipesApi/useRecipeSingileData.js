@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstancePublic from "../AxiosApi/axiosInstancePublic";
 import useAuth from "../hooks/useAuth";
+import useAxiosInstanceSecure from "../AxiosApi/useAxiosInstanceSecure";
 
 function useRecipeSingleData(recipeId) {
   const { user } = useAuth();
+  const { axiosInstanceSecure } = useAxiosInstanceSecure();
 
   const {
     data: recipeSingleData,
@@ -12,7 +14,7 @@ function useRecipeSingleData(recipeId) {
     error,
   } = useQuery({
     queryFn: async () => {
-      const res = await axiosInstancePublic.get(`/api/recipeSingleData`, {
+      const res = await axiosInstanceSecure.get(`/api/recipeSingleData`, {
         params: { id: recipeId },
       });
       //   console.log(res.data);

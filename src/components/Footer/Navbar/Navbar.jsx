@@ -7,9 +7,11 @@ import axiosInstancePublic from "../../../AxiosApi/axiosInstancePublic";
 import useCoinData from "../../../RecipesApi/useCoinData";
 import CustomLoading from "../../CustomLoading/CustomLoading";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage";
+import useAxiosInstanceSecure from "../../../AxiosApi/useAxiosInstanceSecure";
 
 function Navbar() {
   const { googleSing, user, logOut } = useContext(AuthContext);
+  const { axiosInstanceSecure } = useAxiosInstanceSecure();
   const navigate = useNavigate();
   const preveLocation = useLocation();
   const [userDataPosted, setUserDataPosted] = useState(false);
@@ -17,7 +19,7 @@ function Navbar() {
 
   useEffect(() => {
     if (user && !userDataPosted) {
-      axiosInstancePublic
+      axiosInstanceSecure
         .post("/api/userData", {
           name: user.displayName,
           photo: user.photoURL,
@@ -32,11 +34,11 @@ function Navbar() {
           console.error("Error posting user data:", error);
         });
     }
-  }, [user, userDataPosted]);
+  }, [axiosInstanceSecure, user, userDataPosted]);
 
   const handleGoogleSignIn = () => {
     googleSing()
-      .then((user) => {
+      .then(() => {
         Swal("Success", "Login successful!", "success");
       })
       .catch((error) => {
