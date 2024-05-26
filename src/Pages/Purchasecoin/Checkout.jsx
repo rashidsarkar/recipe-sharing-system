@@ -8,7 +8,7 @@ const Checkout = () => {
   const paymentData = location.state?.paymentData;
   const { description, price, coins } = paymentData;
   return (
-    <div className="min-h-screen py-5 min-w-screen bg-gray-50">
+    <div className="min-h-screen py-5 min-w-screen ">
       <div className="px-5">
         <div className="mb-2"></div>
         <div className="mb-2">
@@ -17,7 +17,7 @@ const Checkout = () => {
           </h1>
         </div>
       </div>
-      <div className="w-full px-5 py-10 text-gray-800 bg-white border-t border-b border-gray-200">
+      <div className="w-full px-5 py-10 text-gray-800 bg-gray-200 border-t border-b border-gray-200 ">
         <div className="w-full">
           <div className="items-start -mx-3 md:flex">
             <div className="px-3 md:w-7/12 lg:pr-10">
@@ -53,7 +53,7 @@ const Checkout = () => {
                 Payment Section
                 <PaymentWithStripe></PaymentWithStripe>
               </h2>
-              <p className="text-gray-400">Payment form will be here.</p>
+              {/* <p className="text-gray-400">Payment form will be here.</p> */}
             </div>
           </div>
         </div>

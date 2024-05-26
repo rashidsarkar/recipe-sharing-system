@@ -10,7 +10,10 @@ function CheckoutFormCostom() {
       // form submission until Stripe.js has loaded.
       return;
     }
-    const card =
+    const card = elements.getElement(CardElement);
+    if (card == null) {
+      return;
+    }
   };
   return (
     <div>
@@ -31,7 +34,12 @@ function CheckoutFormCostom() {
             },
           }}
         />
-        <button type="submit" disabled={!stripe}>
+
+        <button
+          type="submit"
+          className="my-4 btn btn-sm btn-primary"
+          disabled={!stripe}
+        >
           Pay
         </button>
       </form>
