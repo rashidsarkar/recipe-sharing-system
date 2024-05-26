@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { useNavigate } from "react-router-dom";
 import "./RecipesCardCss.css";
@@ -6,6 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useCoinData from "../../../RecipesApi/useCoinData.js";
 import usePurchaseRecipe from "../../../RecipesApi/usePurchaseRecipe.js";
+import { FaRegStar } from "react-icons/fa";
 
 function RecipesCard({ recipe }) {
   const { user } = useAuth();
@@ -13,6 +14,11 @@ function RecipesCard({ recipe }) {
   const { coinData, isLoading, isError, error } = useCoinData();
   const { purchaseRecipe, addError } = usePurchaseRecipe();
   // console.log(addError);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
 
   const {
     category,
@@ -97,6 +103,16 @@ function RecipesCard({ recipe }) {
             <p>Creator Email: {creatorEmail}</p>
             <p>Country: {country}</p>
           </div>
+          {user && (
+            <div className="p-3 flex justify-center items-center gap-x-2">
+              <FaRegStar
+                className={`inline-block cursor-pointer ${
+                  isClicked ? "text-green-500" : ""
+                }`}
+                onClick={handleClick}
+              />
+            </div>
+          )}
         </div>
         <button
           onClick={() => handleViewRecipe(creatorEmail)}

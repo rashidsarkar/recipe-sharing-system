@@ -50,17 +50,17 @@ function Recipes() {
       <div>
         <div className="assignment-nav-wrap">
           <ul
-            className="flex justify-between nav nav-pills"
+            className="flex justify-between flex-wrap gap-2 items-center nav nav-pills"
             id="pills-tab-1"
             role="tablist"
           >
-            <li className="nav-item">
-              <button className="text-left nav-link active">
+            <li className="nav-item mx-auto lg:mx-0">
+              <button className="text-left  nav-link active">
                 Payment History
               </button>
             </li>
 
-            <li className="flex flex-wrap items-center justify-end">
+            <li className="flex flex-wrap items-center justify-center lg:justify-end">
               <p className="nav-link active">Search by Name</p>
               <div className="relative lg:ml-4">
                 <input
@@ -76,7 +76,7 @@ function Recipes() {
                 />
               </div>
             </li>
-            <li className="flex flex-wrap items-center justify-end">
+            <li className="flex flex-wrap items-center justify-center lg:justify-end">
               <p className="nav-link active">Search by Country</p>
               <div className="relative lg:ml-4">
                 <input
@@ -93,7 +93,7 @@ function Recipes() {
               </div>
             </li>
 
-            <li>
+            <li className="mx-auto">
               <select
                 value={category}
                 onChange={(e) => {
