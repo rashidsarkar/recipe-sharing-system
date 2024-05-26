@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
+import PaymentWithStripe from "./PaymentWithStripe";
+
 const Checkout = () => {
   const location = useLocation();
   const paymentData = location.state?.paymentData;
@@ -49,6 +51,7 @@ const Checkout = () => {
             <div className="px-3 md:w-5/12">
               <h2 className="text-2xl font-bold text-gray-600">
                 Payment Section
+                <PaymentWithStripe></PaymentWithStripe>
               </h2>
               <p className="text-gray-400">Payment form will be here.</p>
             </div>
