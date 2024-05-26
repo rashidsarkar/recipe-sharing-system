@@ -2,14 +2,16 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import axiosInstancePublic from "../AxiosApi/axiosInstancePublic";
+import useAxiosInstanceSecure from "../AxiosApi/useAxiosInstanceSecure";
 
 function useAddRecipes() {
+  const { axiosInstanceSecure } = useAxiosInstanceSecure();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const { mutateAsync: addRecipe, error: addError } = useMutation({
     mutationFn: async (recipeData) => {
-      const res = await axiosInstancePublic.post(`/api/AddRecipes`, recipeData);
+      const res = await axiosInstanceSecure.post(`/api/AddRecipes`, recipeData);
       return res.data;
     },
     onError: (error) => {
