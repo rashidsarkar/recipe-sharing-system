@@ -1,10 +1,25 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axiosInstancePublic from "../../AxiosApi/axiosInstancePublic";
+import useAuth from "../../hooks/useAuth";
 
-function CheckoutFormCostom() {
+function CheckoutFormCostom({ paymentData }) {
+  const { user } = useAuth();
   const [error, setError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+  const [transactionID, setTransctionId] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  const { price, coins } = paymentData;
+  // console.log(price);
+  useEffect(() => {
+    axiosInstancePublic
+      .post("/create-payment-intent", { price: price })
+      .then((res) => {
+        // console.log(res.data.clientSecret);
+        setClientSecret(res.data.clientSecret);
+      });
+  }, [price]);
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -28,6 +43,26 @@ function CheckoutFormCostom() {
     } else {
       console.log("[PaymentMethod]", paymentMethod);
       setError("");
+    }
+    //confar payment
+    const { paymentIntent, error: confarmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user?.name || "anonymous",
+            email: user?.email || "anonymous",
+          },
+        },
+      });
+    if (confarmError) {
+      setError(confarmError.message);
+    } else {
+      if (paymentIntent.status === "succeeded") {
+        setError("");
+        console.log("paymentIntent", paymentIntent);
+        setTransctionId(paymentIntent.id);
+      }
     }
   };
   return (
@@ -53,11 +88,16 @@ function CheckoutFormCostom() {
         <button
           type="submit"
           className="my-4 btn btn-sm btn-primary"
-          disabled={!stripe}
+          disabled={!stripe || !clientSecret}
         >
           Pay
         </button>
-        <p className="text-red-500">{error}</p>
+        <p className="text-red-500 text-sm">{error}</p>
+        {transactionID && (
+          <p className="text-green-500 text-sm">
+            your transaction id : {transactionID}
+          </p>
+        )}
       </form>
     </div>
   );

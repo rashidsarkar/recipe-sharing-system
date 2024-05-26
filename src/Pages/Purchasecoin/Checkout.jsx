@@ -51,7 +51,9 @@ const Checkout = () => {
             <div className="px-3 md:w-5/12">
               <h2 className="text-2xl font-bold text-gray-600">
                 Payment Section
-                <PaymentWithStripe></PaymentWithStripe>
+                <PaymentWithStripe
+                  paymentData={paymentData}
+                ></PaymentWithStripe>
               </h2>
               {/* <p className="text-gray-400">Payment form will be here.</p> */}
             </div>
