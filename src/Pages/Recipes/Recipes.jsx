@@ -72,9 +72,7 @@ function Recipes() {
             role="tablist"
           >
             <li className="mx-auto nav-item lg:mx-0">
-              <button className="text-left nav-link active">
-                Payment History
-              </button>
+              <button className="text-left nav-link active">All Recipes</button>
             </li>
 
             <li className="flex flex-wrap items-center justify-center lg:justify-end">

@@ -5,6 +5,8 @@ import CustomLoading from "../../components/CustomLoading/CustomLoading";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SectionHeading from "../../TextEffectComponents/SectionHeading/SectionHeading";
+import Suggest from "./Suggest";
 
 function RecipeDetails() {
   useEffect(() => {
@@ -30,6 +32,7 @@ function RecipeDetails() {
     purchased_by,
     video_code,
     watchCount,
+    _id,
   } = recipeSingleData;
 
   return (
@@ -55,6 +58,10 @@ function RecipeDetails() {
               <p className="">
                 <strong>Creator Email:</strong> {creatorEmail}
               </p>
+              {/* <p className="">
+                <strong>My Reaction:</strong> {creatorEmail}
+              </p> */}
+
               <div className="mt-8">
                 <h3 className="text-2xl font-semibold">Recipe Details</h3>
                 <p className="mt-4">{details}</p>
@@ -102,6 +109,9 @@ function RecipeDetails() {
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            <Suggest category={category} recipeSingleData={recipeSingleData} />
           </div>
         </div>
       </div>
