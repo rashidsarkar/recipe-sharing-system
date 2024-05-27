@@ -11,56 +11,60 @@ function Recipes() {
   const [country, setCountry] = useState("");
   const [category, setCategory] = useState("");
   const [myData, setMyData] = useState([]);
-  const [loading, setLoading] = useState(false); // State to manage loading
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [loadingMore, setLoadingMore] = useState(false);
+
+  const fetchRecipes = async () => {
+    setLoading(true);
+    try {
+      const res = await axiosInstancePublic.get(
+        `/api/allRecipe/?recipe_name=${searchValue}&category=${category}&country=${country}&page=${page}`
+      );
+      if (page === 1) {
+        setMyData(res.data.recipes);
+      } else {
+        setMyData((prevData) => [...prevData, ...res.data.recipes]);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true); // Set loading to true when fetching data
-      try {
-        const res = await axiosInstancePublic.get(
-          `/api/allRecipe/?recipe_name=${searchValue}&category=${category}&country=${country}`
-        );
-        setMyData(res.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false); // Set loading to false when data fetching is done
-      }
+    fetchRecipes();
+  }, [searchValue, country, category, page]);
+
+  const handleSearchClick = () => {
+    setPage(1); // Reset page number when search is clicked
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+    setPage(1); // Reset page number when category is changed
+  };
+
+  const handleScroll = () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isBottom = windowHeight + scrollTop === documentHeight;
+
+    if (isBottom && !loading && !loadingMore) {
+      setLoadingMore(true);
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
-
-    fetchData(); // Fetch data when the component mounts
-  }, [searchValue, country, category]);
-
-  const handleSearchClick = async () => {
-    setLoading(true);
-    try {
-      const res = await axiosInstancePublic.get(
-        `/api/allRecipe/?recipe_name=${searchValue}&category=${category}&country=${country}`
-      );
-      setMyData(res.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleCategoryChange = async (e) => {
-    const newCategory = e.target.value;
-    setCategory(newCategory);
-    setLoading(true);
-    console.log(newCategory);
-    try {
-      const res = await axiosInstancePublic.get(
-        `/api/allRecipe/?recipe_name=${searchValue}&category=${newCategory}&country=${country}`
-      );
-      setMyData(res.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, []);
 
   return (
     <>
@@ -124,7 +128,7 @@ function Recipes() {
         </div>
       </div>
       {loading ? (
-        <CustomLoading /> // Show loader when loading is true
+        <CustomLoading />
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
           {myData.map((recipe) => (
@@ -132,6 +136,8 @@ function Recipes() {
           ))}
         </div>
       )}
+      {loadingMore && <CustomLoading />}{" "}
+      {/* Show loading indicator when fetching more data */}
     </>
   );
 }
