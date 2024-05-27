@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SectionHeading from "../../TextEffectComponents/SectionHeading/SectionHeading";
 import Suggest from "./Suggest";
+import Reating from "./Reating";
 
 function RecipeDetails() {
   useEffect(() => {
@@ -58,9 +59,7 @@ function RecipeDetails() {
               <p className="">
                 <strong>Creator Email:</strong> {creatorEmail}
               </p>
-              {/* <p className="">
-                <strong>My Reaction:</strong> {creatorEmail}
-              </p> */}
+              <Reating recipeSingleData={recipeSingleData} />
 
               <div className="mt-8">
                 <h3 className="text-2xl font-semibold">Recipe Details</h3>
