@@ -9,9 +9,9 @@ function Footer() {
             alt=""
           />
           <p>
-            ACME Industries Ltd.
+            Recipes Industries Ltd.
             <br />
-            Providing reliable tech since 1992
+            Providing reliable recipes since 1992
           </p>
         </aside>
         <nav>

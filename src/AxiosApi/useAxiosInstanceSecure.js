@@ -8,19 +8,19 @@ const axiosInstanceSecure = axios.create({
 });
 
 function useAxiosInstanceSecure() {
-  //   const { logOut } = useAuth();
+  const { logOut } = useAuth();
 
   const navigate = useNavigate();
   axiosInstanceSecure.interceptors.request.use(
     function (config) {
-      console.log("SENDING TOKEN TO db");
+      // console.log("SENDING TOKEN TO db");
       const token = localStorage.getItem("access-token");
       config.headers.authorization = `Bearer ${token}`;
       return config;
     },
     function (error) {
       // Do something with request error
-      console.log("TOKEN CAN NOT SENT");
+      // console.log("TOKEN CAN NOT SENT");
       return Promise.reject(error);
     }
   );
@@ -29,14 +29,14 @@ function useAxiosInstanceSecure() {
       return response;
     },
     async (error) => {
-      console.log("DB SESPONSE 401 403");
+      // console.log("DB SESPONSE 401 403");
       const status = error.response?.status;
       if (status === 401 || status === 403) {
         await logOut();
         navigate("/");
       }
-      console.log("status error in interceptors", status);
-      console.log("DB CAN NOT SENT TOKEN");
+      // console.log("status error in interceptors", status);
+      // console.log("DB CAN NOT SENT TOKEN");
       return Promise.reject(error);
     }
   );

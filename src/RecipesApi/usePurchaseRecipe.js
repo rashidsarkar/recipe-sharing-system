@@ -1,27 +1,28 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import axiosInstancePublic from "../AxiosApi/axiosInstancePublic";
+import axiosInstancePublic from "../AxiosApi/axiosInstancePublic"; // This doesn't seem to be used
 import useAxiosInstanceSecure from "../AxiosApi/useAxiosInstanceSecure";
+import { useState } from "react";
 
 function usePurchaseRecipe() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { axiosInstanceSecure } = useAxiosInstanceSecure();
+  const [singileData, setSingileData] = useState("");
 
   const { mutateAsync: purchaseRecipe, error: addError } = useMutation({
     mutationFn: async (updateData) => {
-      // const { recipeId } = updateData;
-      // console.log(recipeId);
+      const { recipeId } = updateData;
+      setSingileData(recipeId);
       const res = await axiosInstanceSecure.post(
         `/api/purchaseRecipe`,
         updateData
       );
-      console.log(res);
       return res.data;
     },
     onError: (error) => {
-      console.error("Error Purchase recipe:", error);
+      console.error("Error purchasing recipe:", error);
       if (
         error.response &&
         error.response.data.message === "User already purchased this recipe"
@@ -31,7 +32,7 @@ function usePurchaseRecipe() {
           text: "You have already purchased this recipe.",
           icon: "info",
         });
-        navigate("");
+        navigate(`/recipeDetails/${singileData}`);
       } else {
         Swal.fire({
           title: "Error",
@@ -51,7 +52,7 @@ function usePurchaseRecipe() {
         toast: true,
         position: "top-right",
       });
-      //   navigate("/recipes");
+      navigate(`/recipeDetails/${singileData}`);
     },
   });
 

@@ -32,17 +32,34 @@ function Recipes() {
   }, [searchValue, country, category]);
 
   const handleSearchClick = async () => {
-    const res = await axiosInstancePublic.get(
-      `/api/allRecipe/?recipe_name=${searchValue}&category=${category}&country=${country}`
-    );
-    setMyData(res.data);
+    setLoading(true);
+    try {
+      const res = await axiosInstancePublic.get(
+        `/api/allRecipe/?recipe_name=${searchValue}&category=${category}&country=${country}`
+      );
+      setMyData(res.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleCategory = async () => {
-    const res = await axiosInstancePublic.get(
-      `/api/allRecipe/?recipe_name=${searchValue}&category=${category}&country=${country}`
-    );
-    setMyData(res.data);
+  const handleCategoryChange = async (e) => {
+    const newCategory = e.target.value;
+    setCategory(newCategory);
+    setLoading(true);
+    console.log(newCategory);
+    try {
+      const res = await axiosInstancePublic.get(
+        `/api/allRecipe/?recipe_name=${searchValue}&category=${newCategory}&country=${country}`
+      );
+      setMyData(res.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -50,12 +67,12 @@ function Recipes() {
       <div>
         <div className="assignment-nav-wrap">
           <ul
-            className="flex justify-between flex-wrap gap-2 items-center nav nav-pills"
+            className="flex flex-wrap items-center justify-between gap-2 nav nav-pills"
             id="pills-tab-1"
             role="tablist"
           >
-            <li className="nav-item mx-auto lg:mx-0">
-              <button className="text-left  nav-link active">
+            <li className="mx-auto nav-item lg:mx-0">
+              <button className="text-left nav-link active">
                 Payment History
               </button>
             </li>
@@ -72,7 +89,7 @@ function Recipes() {
                 />
                 <BiSearch
                   className="absolute w-6 h-6 text-gray-400 transform -translate-y-1/2 cursor-pointer right-2 top-1/2 lg:h-8 lg:w-8"
-                  onClick={() => handleSearchClick()}
+                  onClick={handleSearchClick}
                 />
               </div>
             </li>
@@ -88,7 +105,7 @@ function Recipes() {
                 />
                 <BiSearch
                   className="absolute w-6 h-6 text-gray-400 transform -translate-y-1/2 cursor-pointer right-2 top-1/2 lg:h-8 lg:w-8"
-                  onClick={() => handleSearchClick()}
+                  onClick={handleSearchClick}
                 />
               </div>
             </li>
@@ -96,10 +113,7 @@ function Recipes() {
             <li className="mx-auto">
               <select
                 value={category}
-                onChange={(e) => {
-                  setCategory(e.target.value);
-                  handleCategory();
-                }}
+                onChange={handleCategoryChange}
                 className="border w-[178px] border-gray-300 rounded-md py-1 px-2 focus:outline-none focus:ring focus:border-blue-300"
               >
                 <option value="">Select Category</option>
@@ -114,7 +128,7 @@ function Recipes() {
       {loading ? (
         <CustomLoading /> // Show loader when loading is true
       ) : (
-        <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
           {myData.map((recipe) => (
             <RecipesCard key={recipe._id} recipe={recipe} />
           ))}
