@@ -99,20 +99,10 @@ function RecipesCard({ recipe }) {
         <div className="card-text">
           <span className="date">Purchased {purchased_by.length} User</span>
           <h2>{recipe_name}</h2>
-          <div className="flex flex-col md:flex-row justify-around items-center  text-center">
+          <div className="flex flex-col items-center justify-around text-center md:flex-row">
             <p>Creator Email: {creatorEmail}</p>
             <p>Country: {country}</p>
           </div>
-          {user && (
-            <div className="p-3 flex justify-center items-center gap-x-2">
-              <FaRegStar
-                className={`inline-block cursor-pointer ${
-                  isClicked ? "text-green-500" : ""
-                }`}
-                onClick={handleClick}
-              />
-            </div>
-          )}
         </div>
         <button
           onClick={() => handleViewRecipe(creatorEmail)}

@@ -14,7 +14,7 @@ function Suggest({ category, recipeSingleData }) {
       setLoading(true);
       try {
         const res = await axiosInstancePublic.get(
-          `/api/allRecipe/?&category=${category}`
+          `/api/allRecipe/ceta/?&category=${category}`
         );
         // Filter out the item with the current _id and get only 3 items
         console.log(res.data, "==");

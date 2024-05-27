@@ -79,7 +79,7 @@ function RecipeDetails() {
               {/* Embed the YouTube video with iframe */}
               <div className="mt-8">
                 {/* For mobile devices */}
-                <div className="block md:hidden">
+                <div className="block lg:hidden">
                   <div
                     className="relative w-full"
                     style={{ paddingBottom: "56.25%" }}
@@ -95,7 +95,7 @@ function RecipeDetails() {
                   </div>
                 </div>
                 {/* For large devices */}
-                <div className="hidden md:block">
+                <div className="hidden lg:block">
                   <iframe
                     width="560"
                     height="315"
